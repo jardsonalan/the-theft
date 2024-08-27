@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(193, 193, 241);
+}
+
+.container {
+    /* background-color: red; */
+    width: 650px;
+    height: 500px;
+    background-image: url('../../../img/maps/mapa-final.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.security {
+    position: relative;
+    width: 45px;
+    cursor: pointer;
+}
+
+#security1 {
+    top: 120px;
+    left: 330px;
+    z-index: 1;
+}
+
+#security2 {
+    top: 230px;
+    left: 180px;
+}
+
+#security3 {
+    top: 120px;
+    z-index: 1;
+}
+
+.camera {
+    width: 120px;
+    position: relative;
+    cursor: pointer;
+}
+
+#camera1 {
+    top: 220px;
+    left: -20px;
+}
+
+#camera2 {
+    top: 220px;
+    left: 120px;
+}
+
+.cadeado {
+    position: relative;
+    cursor: pointer;
+    width: 30px;
+}
+
+#cadeado1 {
+    top: 80px;
+    left: -316px;
+}
+
+#cadeado2 {
+    top: 270px;
+    left: -351px;
+}
+
+#cadeado3 {
+    top: 10px;
+    left: -164px;
+}
+
+.key {
+    width: 15px;
+    position: relative;
+    top: 93px;
+    left: 15px;
+    cursor: pointer;
+}
+
+.container-dices {
+    background-color: rgb(104, 104, 240);
+    width: 80px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.box-button-dices {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-dices {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-dices:hover {
+    background-color: rgb(185, 185, 247);
+}
+
+.res-dices {
+    background-color: rgb(25, 25, 153);
+    width: 50px;
+    height: 50px;
+    margin: 0 0 20px 0;
+    border: 2px solid rgb(185, 185, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 50%;
+    color: white;
+}
