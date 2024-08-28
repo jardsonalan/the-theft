@@ -15,6 +15,15 @@ let balon_res = document.querySelector('#balon-res')
 
 let res_dices = document.querySelector('#res-dices')
 
+let card
+const capturarId = (evt) => {
+    card = evt.currentTarget.id
+    console.log(card)
+}
+
+document.getElementById("btn-hacker").addEventListener("click", capturarId);
+document.getElementById("btn-staff").addEventListener("click", capturarId);
+document.getElementById("btn-talktive").addEventListener("click", capturarId);
 
 const msg = (mensagem) => {
     balon_res.style.visibility = 'visible'
@@ -28,8 +37,7 @@ const del_msg = () => {
 security1.addEventListener('mouseover', ()=>{
     msg('Security 1')
     security1.addEventListener('click',()=>{
-        // console.log(Number(res_dices.innerHTML))
-        if (Number(res_dices.innerHTML) == 6 ) {
+        if (Number(res_dices.innerHTML) == 6 && card == 'btn-hacker') {
             security1.style.visibility = 'hidden'
         } else {
             balon_res.innerHTML='Wow! Your tentative failed!'

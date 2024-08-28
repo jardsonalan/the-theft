@@ -17,7 +17,6 @@ body {
 }
 
 .container {
-    /* background-color: red; */
     width: 700px;
     height: 500px;
     background-image: url('../../../img/maps/mapa-inicial.png');
@@ -120,22 +119,21 @@ body {
 
 .container-dices {
     background-color: rgb(104, 104, 240);
-    width: 80px;
-    height: 400px;
+    width: 150px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 50%;
+    top: 64%;
     left: 85%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
 }
 
 .box-button-dices {
-    display: flex;
-    flex-direction: column;
+    text-align: center;
 }
 
 .btn-dices {
@@ -143,7 +141,7 @@ body {
     height: 50px;
     margin: 10px;
     border: none;
-    border-radius: 50%;
+    border-radius: 5px;
     font-weight: bold;
     font-size: 1.5em;
     cursor: pointer;
@@ -156,16 +154,16 @@ body {
 
 .res-dices {
     background-color: rgb(25, 25, 153);
-    width: 50px;
+    width: 130px;
     height: 50px;
-    margin: 0 0 20px 0;
+    margin: 10px;
     border: 2px solid rgb(185, 185, 247);
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.5em;
     font-weight: bold;
-    border-radius: 50%;
+    border-radius: 5px;
     color: white;
 }
 
