@@ -15,6 +15,16 @@ let balon_res = document.querySelector('#balon-res')
 
 let res_dices = document.querySelector('#res-dices')
 
+let btn_stats = [...document.querySelectorAll('.btn-stats')]
+
+let alertShown = true
+
+btn_stats.map((el)=>{
+    el.addEventListener('click', (evt)=>{
+        el.classList.toggle('selected')
+    })
+})
+
 let card
 const capturarId = (evt) => {
     card = evt.currentTarget.id
@@ -23,7 +33,7 @@ const capturarId = (evt) => {
 
 document.getElementById("btn-hacker").addEventListener("click", capturarId);
 document.getElementById("btn-staff").addEventListener("click", capturarId);
-document.getElementById("btn-talktive").addEventListener("click", capturarId);
+document.getElementById("btn-talkative").addEventListener("click", capturarId);
 
 const msg = (mensagem) => {
     balon_res.style.visibility = 'visible'
@@ -35,9 +45,9 @@ const del_msg = () => {
 }
 
 security1.addEventListener('mouseover', ()=>{
-    msg('Security 1')
+    msg('Why so much noise? Why did not I choose to be a programmer?!')
     security1.addEventListener('click',()=>{
-        if (Number(res_dices.innerHTML) == 6 && card == 'btn-hacker') {
+        if (Number(res_dices.innerHTML) > 18 && card == 'btn-talkative') {
             security1.style.visibility = 'hidden'
         } else {
             balon_res.innerHTML='Wow! Your tentative failed!'
@@ -50,7 +60,14 @@ security1.addEventListener('mouseout', ()=>{
 })
 
 security2.addEventListener('mouseover', ()=>{
-    msg('Security 2')
+    msg('Where are my clothes?')
+    security2.addEventListener('click',()=>{
+        if (Number(res_dices.innerHTML) > 18 && card == 'btn-talkative') {
+            security2.style.visibility = 'hidden'
+        } else {
+            balon_res.innerHTML='Wow! Your tentative failed!'
+        }
+    })
 })
 
 security2.addEventListener('mouseout', ()=>{
@@ -58,7 +75,14 @@ security2.addEventListener('mouseout', ()=>{
 })
 
 security3.addEventListener('mouseover', ()=>{
-    msg('Security 3')
+    msg('Cronch! zzZ!')
+    security3.addEventListener('click',()=>{
+        if (Number(res_dices.innerHTML) > 18 && card == 'btn-talkative') {
+            security3.style.visibility = 'hidden'
+        } else {
+            balon_res.innerHTML='Wow! Your tentative failed!'
+        }
+    })
 })
 
 security3.addEventListener('mouseout', ()=>{
@@ -66,7 +90,7 @@ security3.addEventListener('mouseout', ()=>{
 })
 
 atendente1.addEventListener('mouseover', ()=>{
-    msg('Atendente 1')
+    msg('I am tired, I just want to get out of here!')
 })
 
 atendente1.addEventListener('mouseout', ()=>{
@@ -74,7 +98,7 @@ atendente1.addEventListener('mouseout', ()=>{
 })
 
 atendente2.addEventListener('mouseover', ()=>{
-    msg('Atendente 2')
+    msg('Number 127, please come to the counter!')
 })
 
 atendente2.addEventListener('mouseout', ()=>{
@@ -82,7 +106,7 @@ atendente2.addEventListener('mouseout', ()=>{
 })
 
 cliente1.addEventListener('mouseover', ()=>{
-    msg('Cliente 1')
+    msg('I am number 128, I am next!')
 })
 
 cliente1.addEventListener('mouseout', ()=>{
@@ -90,7 +114,7 @@ cliente1.addEventListener('mouseout', ()=>{
 })
 
 cliente2.addEventListener('mouseover', ()=>{
-    msg('Cliente 2')
+    msg('My goodness, these people are so slow!')
 })
 
 cliente2.addEventListener('mouseout', ()=>{
@@ -99,6 +123,21 @@ cliente2.addEventListener('mouseout', ()=>{
 
 armario1.addEventListener('mouseover', ()=>{
     msg('Armário 1')
+    armario1.addEventListener('click',()=>{
+        if (Number(res_dices.innerHTML) > 16 && card == 'btn-staff') {
+            armario1.src = '../../img/objetos/armario/armario-quebrado.png'
+            if (alertShown) {
+                alert('Ops! Nesse armário não tem nada.')
+                alertShown = false
+
+                setTimeout(function (){
+                    alertShown = true
+                }, 2000)
+            }
+        } else {
+            balon_res.innerHTML='Wow! Your tentative failed!'
+        }
+    })
 })
 
 armario1.addEventListener('mouseout', ()=>{
@@ -107,6 +146,21 @@ armario1.addEventListener('mouseout', ()=>{
 
 armario2.addEventListener('mouseover', ()=>{
     msg('Armário 2')
+    armario2.addEventListener('click',()=>{
+        if (Number(res_dices.innerHTML) > 16 && card == 'btn-staff') {
+            armario2.src = '../../img/objetos/armario/armario-quebrado.png'
+            if (alertShown) {
+                alert('Congratulations! You have a shirts the guards.')
+                alertShown = false
+
+                setTimeout(function (){
+                    alertShown = true
+                }, 2000)
+            }
+        } else {
+            balon_res.innerHTML='Wow! Your tentative failed!'
+        }
+    })
 })
 
 armario2.addEventListener('mouseout', ()=>{
