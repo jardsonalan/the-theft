@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('../../../img/background/background-ruas.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.container {
+    width: 700px;
+    height: 500px;
+    background-image: url('../../../img/maps/mapa-laser.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.security {
+    position: relative;
+    width: 35px;
+    cursor: pointer;
+}
+
+#security1 {
+    top: 150px;
+    left: 200px;
+}
+
+#security2 {
+    top: 150px;
+    left: 295px;
+}
+
+#security3 {
+    top: 150px;
+    left: 400px;
+}
+
+#btn-hackear {
+    width: 40px;
+    height: 50px;
+    cursor: pointer;
+    position: relative;
+    left: 535px;
+    top: 135px;
+}
+
+.box-laser {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 145px;
+    left: 125px;
+}
+
+.laser {
+    width: 450px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.container-dices {
+    background-color: rgb(104, 104, 240);
+    width: 220px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 80%;
+    left: 88%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.box-button-dices {
+    text-align: center;
+}
+
+.btn-dices {
+    width: 80px;
+    height: 50px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-dices:hover {
+    background-color: rgb(185, 185, 247);
+}
+
+.res-dices {
+    background-color: rgb(25, 25, 153);
+    width: 190px;
+    height: 50px;
+    margin: 10px;
+    border: 2px solid rgb(185, 185, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+}
+
+.balon-res {
+    background-color: white;
+    width: 700px;
+    height: 80px;
+    margin: 20px 0 0 0;
+    border-radius: 10px;
+    border: 2px solid black;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 8px;
+}
+
+.container-stats {
+    background-color: rgb(104, 104, 240);
+    width: 200px;
+    height: 650px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+}
+
+.btn-stats {
+    border: 2px solid rgb(215, 215, 216);
+    background-color: rgb(54, 54, 145);
+    width: 150px;
+    height: 300px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: .3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.btn-stats:hover {
+    background-color: rgb(62, 62, 212);
+}
+
+.container-stats > .btn-stats .cards {
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.container-stats > .btn-stats h1 {
+    font-size: 1.3em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-stats > .btn-stats p {
+    font-size: .8em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+.container-stats > .btn-stats hr {
+    width: 100%;
+    margin: 5px;
+}
+
+#box-options {
+    position: absolute;
+    left: 80%;
+    top: 7%;
+    background-color: rgb(104, 104, 240);
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    gap: .8em;
+}
+
+#box-options button {
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: .3s;
+}
+
+#box-options button:hover {
+    background-color: rgb(185, 185, 247);
+}
+
+#box-mestre {
+    background-color: rgb(104, 104, 240);
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    font-size: 1.2em;
+    position: absolute;
+    left: 80%;
+}

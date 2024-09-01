@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Theft - Level 02</title>
+    <link rel="stylesheet" href="css/level02.css">
+</head>
+<body>
+    <div class="container">
+        <img src="../../img/characters/segurança/segurança.png" alt="security" class="security" id="security1">
+        <img src="../../img/characters/segurança/segurança.png" alt="security" class="security" id="security2">
+        <img src="../../img/characters/segurança/segurança.png" alt="security" class="security" id="security3">
+
+        <div class="box-laser">
+            <img src="../../img/objetos/laser/laser.png" alt="Laser" class="laser" id="laser-1">
+            <img src="../../img/objetos/laser/laser.png" alt="Laser" class="laser" id="laser-2">
+            <img src="../../img/objetos/laser/laser.png" alt="Laser" class="laser" id="laser-3">
+            <img src="../../img/objetos/laser/laser.png" alt="Laser" class="laser" id="laser-4">
+            <img src="../../img/objetos/laser/laser.png" alt="Laser" class="laser" id="laser-5">
+        </div>
+        
+        <div id="btn-hackear"></div>
+        
+    </div>
+
+    <div class="balon-res" id="balon-res" on></div>
+
+    <div class="container-dices">
+        <div id="res-dices" class="res-dices">
+        </div>
+        <div class="box-button-dices">
+            <button id="btn-04" class="btn-dices">4</button>
+            <button id="btn-06" class="btn-dices">6</button>
+            <button id="btn-10" class="btn-dices">10</button>
+            <button id="btn-20" class="btn-dices">20</button>
+        </div>
+    </div>
+
+    <div class="container-stats">
+        <div id="btn-hacker" class="btn-stats">
+            <img src="../../img/cards/hacker.jpg" alt="Hacker" class="cards">
+            <h1>Hacker</h1>
+            <hr>
+            <p id="strength">Strength: 1</p>
+            <p id="dexterity">Dexterity: 2</p>
+            <p id="intellect">Intellect: 3</p>
+            <p id="carism">Carism: 5</p>
+        </div>
+        <div id="btn-staff" class="btn-stats">
+            <img src="../../img/cards/staff.jpg" alt="Staff" class="cards">
+            <h1>Staff</h1>
+            <hr>
+            <p id="strength">Strength: 2</p>
+            <p id="dexterity">Dexterity: 4</p>
+            <p id="intellect">Intellect: 3</p>
+            <p id="carism">Carism: 2</p>
+        </div>
+        <div id="btn-talkative" class="btn-stats">
+            <img src="../../img/cards/talkative.jpg" alt="Talkative" class="cards">
+            <h1>Talkative</h1>
+            <hr>
+            <p id="strength">Strength: 4</p>
+            <p id="dexterity">Dexterity: 2</p>
+            <p id="intellect">Intellect: 2</p>
+            <p id="carism">Carism: 3</p>
+        </div>
+    </div>
+
+    <div id="box-options">
+        <button class="btn-options">Falar com guarda</button>
+        <button class="btn-options">Eliminar um guarda</button>
+        <button class="btn-options">Hackear laser</button>
+    </div>
+
+    <a href="../level-03/level03.html" id="box-mestre">Mestre: Ian</a>
+
+    <script src="js/system/system.js"></script>
+    <script src="js/dices/dices.js"></script>
+</body>
+</html>
