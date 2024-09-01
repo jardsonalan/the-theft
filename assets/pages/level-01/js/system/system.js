@@ -125,7 +125,7 @@ const abrirArmario = () => {
             })
 
             armario2.addEventListener('click',()=>{
-                if (Number(res_dices.innerHTML) >= 16) {
+                if (Number(res_dices.innerHTML) >= 19) {
                     armario2.src = '../../img/objetos/armario/armario-quebrado.png'
                     if (alertShown) {
                         alert('Parabéns! Vocês encontraram as roupas dos guardas.')
