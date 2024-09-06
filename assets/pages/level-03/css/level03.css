@@ -90,6 +90,7 @@ body {
 #cadeado-1 {
     top: 115px;
     left: -166px;
+    cursor: pointer;
 }
 
 #cadeado-2 {

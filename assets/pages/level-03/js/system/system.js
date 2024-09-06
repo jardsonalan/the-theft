@@ -75,7 +75,8 @@ security2.addEventListener('click', () => handleSecurityClick(security2, 12, 12)
 security3.addEventListener('click', () => handleSecurityClick(security3, 12, 12))
 
 const roubarKey = () => {
-    if (security1.style.visibility == 'hidden' && security2.style.visibility == 'hidden' && security3.style.visibility == 'hidden') {
+    if (currentAction === 'Roubar') {
+        if (security1.style.visibility == 'hidden' && security2.style.visibility == 'hidden' && security3.style.visibility == 'hidden') {
             if ((card === 'btn-staff' && Number(res_dices.innerHTML) >= 12) ||
             (card === 'btn-talkative' && Number(res_dices.innerHTML) >= 16) ||
             (card === 'btn-hacker' && Number(res_dices.innerHTML) >= 18)) {
@@ -85,8 +86,9 @@ const roubarKey = () => {
             } else {
                 balon_res.innerHTML = 'Tentativa falhou'
             }
-    } else {
-        alert('Essa ação ainda não pode ser realizada!')
+        } else {
+            alert('Essa ação ainda não pode ser realizada!')
+        }
     }
 }
 
@@ -129,6 +131,30 @@ const desligarCameras = () => {
 }
 
 btn_hackear.addEventListener('click', desligarCameras)
+
+const roubarCofre = () => {
+    if (currentAction === 'Roubar') {
+        if (key.style.visibility == 'hidden' && camera1.style.visibility == 'hidden' && camera2.style.visibility == 'hidden') {
+            if ((Number(res_dices.innerHTML) >= 18 && card === 'btn-hacker') || (Number(res_dices.innerHTML) >= 18 && card === 'btn-talkative') || (Number(res_dices.innerHTML) >= 18 && card === 'btn-staff')) {
+                if (alertShown) {
+                    alert('Congratulations! Vocês ganharam.')
+                    alertShown = false
+
+                    setTimeout(function (){
+                        alertShown = true
+                    }, 2000)
+                }
+                cadeado1.style.visibility = 'hidden'
+            } else {
+                balon_res.innerHTML = 'Tentativa falhou'
+            }
+        } else {
+            alert('Essa ação ainda não pode ser realizada!')
+        }
+    }
+}
+
+cadeado1.addEventListener('click', roubarCofre)
 
 const msg = (mensagem) => {
     balon_res.style.visibility = 'visible'
