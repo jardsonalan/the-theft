@@ -44,59 +44,61 @@ btn_options.map((el) => {
 
 // Ações dos personagens e valores dos dados
 const handleSecurityClick = (security, minFalar, minEliminar) => {
-    if (currentAction === 'Falar com guarda') {
+    if (currentAction === 'Talk to the guard') {
         if (Number(res_dices.innerHTML) >= minFalar) {
             if (card === 'btn-talkative') {
                 if (security.id == 'security1') {
-                    balon_res.innerHTML = `Security 1: O que você quer?`
+                    balon_res.innerHTML = `Security 1: Sometimes the answer is hidden where you least expect it.`
                 } else if (security.id == 'security2') {
-                    balon_res.innerHTML = `Security 2: Talvez tenha alguma coisa no armário!` // Talkative: único que contém essa função
+                    balon_res.innerHTML = `Security 2: You might find what you need in places that are often overlooked.`
                 } else if (security.id == 'security3') {
-                    balon_res.innerHTML = `Security 3: Olá, como você vai?`
+                    balon_res.innerHTML = `Security 3: Look where things are stored—sometimes that's where the solution lies.`
+                } else {
+                    balon_res.innerHTML = `The attempt failed.`
                 }
             } else if (card === 'btn-hacker' && Number(res_dices.innerHTML) >= 18) {
                 if (security.id == 'security1') {
-                    balon_res.innerHTML = `Security 1: O que você quer?`
+                    balon_res.innerHTML = `Security 1: Never underestimate the power of a dancing penguin in a dark room.`
                 } else if (security.id == 'security2') {
-                    balon_res.innerHTML = `Security 2: Talvez tenha alguma coisa no armário!`
+                    balon_res.innerHTML = `Security 2: If birds sing at night, perhaps the mystery lies in the daylight.`
                 } else if (security.id == 'security3') {
-                    balon_res.innerHTML = `Security 3: Olá, como você vai?`
+                    balon_res.innerHTML = `Security 3: The color of your shoes might influence the direction of the wind.`
                 } else {
-                    balon_res.innerHTML = `Tentativa falhou`
+                    balon_res.innerHTML = `The attempt failed.`
                 }
             } else if (card === 'btn-staff' && Number(res_dices.innerHTML) >= 16) {
                 if (security.id == 'security1') {
-                    balon_res.innerHTML = `Security 1: O que você quer?`
+                    balon_res.innerHTML = `Security 1: Sometimes the answer is in the way clouds move.`
                 } else if (security.id == 'security2') {
-                    balon_res.innerHTML = `Security 2: Talvez tenha alguma coisa no armário!`
+                    balon_res.innerHTML = `Security 2: Have you considered the importance of a leaf's whispers?`
                 } else if (security.id == 'security3') {
-                    balon_res.innerHTML = `Security 3: Olá, como você vai?`
+                    balon_res.innerHTML = `Security 3: The secret might be in how you use a spoon to stir water.`
                 } else {
-                    balon_res.innerHTML = `Tentativa falhou`
+                    balon_res.innerHTML = `The attempt failed.`
                 }
             }
         } else {
-            balon_res.innerHTML = 'Tentativa falhou'
+            balon_res.innerHTML = 'The attempt failed.'
         }
 
-    } else if (currentAction === 'Eliminar um guarda') {
+    } else if (currentAction === 'Eliminate a guard') {
         if ((card === 'btn-staff' && Number(res_dices.innerHTML) >= 12) ||
             (card === 'btn-talkative' && Number(res_dices.innerHTML) >= 16) ||
             (card === 'btn-hacker' && Number(res_dices.innerHTML) >= 18)) {
             if (alertShown) {
                 if (security.id == 'security1') {
-                    alert(`Security 1: Eliminate!`)
+                    alert(`Security 1: Eliminated!`)
                 } else if (security.id == 'security2') {
-                    alert(`Security 2: Eliminate!`)
+                    alert(`Security 2: Eliminated!`)
                 } else if (security.id == 'security3') {
-                    alert(`Security 3: Eliminate!`)
+                    alert(`Security 3: Eliminated!`)
                 }
                 alertShown = false
                 setTimeout(() => { alertShown = true }, 2000)
             }
             security.style.visibility = 'hidden'
         } else {
-            balon_res.innerHTML = 'Tentativa falhou'
+            balon_res.innerHTML = 'The attempt failed.'
         }
     }
 }
@@ -106,13 +108,13 @@ security2.addEventListener('click', () => handleSecurityClick(security2, 12, 12)
 security3.addEventListener('click', () => handleSecurityClick(security3, 12, 12))
 
 const abrirArmario = () => {
-    if (currentAction === 'Abrir armário') {
+    if (currentAction === 'Open the locker') {
         if (security1.style.visibility == 'hidden' && security2.style.visibility == 'hidden' && security3.style.visibility == 'hidden') {
             armario1.addEventListener('click',()=>{
                 if (Number(res_dices.innerHTML) >= 16) {
                     armario1.src = '../../img/objetos/armario/armario-quebrado.png'
                     if (alertShown) {
-                        alert('Ops! Nesse armário não tem nada.')
+                        alert('Oops! This locker is empty.')
                         alertShown = false
 
                         setTimeout(function (){
@@ -120,7 +122,7 @@ const abrirArmario = () => {
                         }, 2000)
                     }
                 } else {
-                    balon_res.innerHTML='Wow! Your tentative failed!'
+                    balon_res.innerHTML='Oops! Your tentative failed!'
                 }
             })
 
@@ -128,20 +130,21 @@ const abrirArmario = () => {
                 if (Number(res_dices.innerHTML) >= 19) {
                     armario2.src = '../../img/objetos/armario/armario-quebrado.png'
                     if (alertShown) {
-                        alert('Parabéns! Vocês encontraram as roupas dos guardas.')
+                        alert('Congratulations! You found the guards uniforms.')
                         alertShown = false
 
                         setTimeout(function (){
                             alertShown = true
                         }, 2000)
                     }
+                    window.location='../objetivos/obj-02/obj02.html'
                 } else {
-                    balon_res.innerHTML='Wow! Your tentative failed!'
+                    balon_res.innerHTML='Oops! Your tentative failed!'
                 }
             })
             
         } else {
-            alert('Você ainda não pode executar está ação!')
+            alert('You cannot perform this action yet!')
         }
     }
 }
@@ -211,21 +214,5 @@ cliente2.addEventListener('mouseover', ()=>{
 })
 
 cliente2.addEventListener('mouseout', ()=>{
-    del_msg()
-})
-
-armario1.addEventListener('mouseover', ()=>{
-    msg('Armário 1')
-})
-
-armario1.addEventListener('mouseout', ()=>{
-    del_msg()
-})
-
-armario2.addEventListener('mouseover', ()=>{
-    msg('Armário 2')
-})
-
-armario2.addEventListener('mouseout', ()=>{
     del_msg()
 })

@@ -49,63 +49,65 @@ btn_options.map((el) => {
 
 // Ações dos personagens e valores dos dados
 const handleSecurityClick = (security, minFalar, minEliminar) => {
-    if (currentAction === 'Falar com guarda') {
+    if (currentAction === 'Talk to the guard') {
         if (Number(res_dices.innerHTML) >= minFalar) {
             if (card === 'btn-talkative') {
                 if (security.id == 'security1') {
-                    balon_res.innerHTML = `Security 1: O que você quer?`
+                    balon_res.innerHTML = `Security 1: Sometimes, the key to deactivating security systems lies in the digital realm.`
                 } else if (security.id == 'security2') {
-                    balon_res.innerHTML = `Security 2: Talvez tenha alguma coisa no armário!` // Talkative: único que contém essa função
+                    balon_res.innerHTML = `Security 2: The solution might be hidden where technology and security intersect.`
                 } else if (security.id == 'security3') {
-                    balon_res.innerHTML = `Security 3: Olá, como você vai?`
+                    balon_res.innerHTML = `Security 3: The controls for the lasers might be in an unexpected place, like the main console.`
+                } else {
+                    balon_res.innerHTML = `The attempt failed.`
                 }
             } else if (card === 'btn-hacker' && Number(res_dices.innerHTML) >= 18) {
                 if (security.id == 'security1') {
-                    balon_res.innerHTML = `Security 1: O que você quer?`
+                    balon_res.innerHTML = `Security 1: I once saw a cat solve a puzzle with a single keystroke.`
                 } else if (security.id == 'security2') {
-                    balon_res.innerHTML = `Security 2: Talvez tenha alguma coisa no armário!`
+                    balon_res.innerHTML = `Security 2: The best way to find something is to look where you're not looking.`
                 } else if (security.id == 'security3') {
-                    balon_res.innerHTML = `Security 3: Olá, como você vai?`
+                    balon_res.innerHTML = `Security 3: Have you ever considered that the solution might be in the wrong place?`
                 } else {
-                    balon_res.innerHTML = `Tentativa falhou`
+                    balon_res.innerHTML = `The attempt failed.`
                 }
             } else if (card === 'btn-staff' && Number(res_dices.innerHTML) >= 16) {
                 if (security.id == 'security1') {
-                    balon_res.innerHTML = `Security 1: O que você quer?`
+                    balon_res.innerHTML = `Security 1: Sometimes, answers come when you least expect them—like during a rainstorm.`
                 } else if (security.id == 'security2') {
-                    balon_res.innerHTML = `Security 2: Talvez tenha alguma coisa no armário!`
+                    balon_res.innerHTML = `Security 2: They say the key to success is in the details, but what if the details are missing?`
                 } else if (security.id == 'security3') {
-                    balon_res.innerHTML = `Security 3: Olá, como você vai?`
+                    balon_res.innerHTML = `Security 3: If you think you've found the solution, maybe you should try looking elsewhere.`
                 } else {
-                    balon_res.innerHTML = `Tentativa falhou`
+                    balon_res.innerHTML = `The attempt failed.`
                 }
             }
         } else {
-            balon_res.innerHTML = 'Tentativa falhou'
+            balon_res.innerHTML = `The attempt failed.`
         }
 
-    } else if (currentAction === 'Eliminar um guarda') {
+    } else if (currentAction === 'Eliminate a guard') {
         if (laser1Visibility == 'hidden' && laser2Visibility == 'hidden' && laser3Visibility == 'hidden' && laser4Visibility == 'hidden' && laser5Visibility == 'hidden') {
             if ((card === 'btn-staff' && Number(res_dices.innerHTML) >= 12) ||
             (card === 'btn-talkative' && Number(res_dices.innerHTML) >= 16) ||
             (card === 'btn-hacker' && Number(res_dices.innerHTML) >= 18)) {
                 if (alertShown) {
                     if (security.id == 'security1') {
-                        alert(`Security 1: Eliminate!`)
+                        alert(`Security 1: Eliminated!`)
                     } else if (security.id == 'security2') {
-                        alert(`Security 2: Eliminate!`)
+                        alert(`Security 2: Eliminated!`)
                     } else if (security.id == 'security3') {
-                        alert(`Security 3: Eliminate!`)
+                        alert(`Security 3: Eliminated!`)
                     }
                     alertShown = false
                     setTimeout(() => { alertShown = true }, 2000)
                 }
                 security.style.visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                balon_res.innerHTML = `The attempt failed.`
             }
         } else {
-            alert('Você ainda não pode executar está ação!')
+            alert('You still cannot perform this action!')
         }
     }
 }
@@ -115,11 +117,11 @@ security2.addEventListener('click', () => handleSecurityClick(security2, 12, 12)
 security3.addEventListener('click', () => handleSecurityClick(security3, 12, 12))
 
 const desligarLaser = () => {
-    if (currentAction === 'Hackear laser') {
+    if (currentAction === 'Hack the laser') {
         laser5.addEventListener('click', (evt)=>{
             if ((Number(res_dices.innerHTML) >= 12 && card === 'btn-hacker') || (Number(res_dices.innerHTML) == 20 && card === 'btn-talkative') || (Number(res_dices.innerHTML) == 20 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Laser 5: Desativado com sucesso!')
+                    alert('Laser 5: Successfully deactivated!')
                     alertShown = false
 
                     setTimeout(function (){
@@ -129,14 +131,14 @@ const desligarLaser = () => {
                 laser5.style.visibility = 'hidden'
                 laser5Visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                msg(`The attempt failed.`)
             }
         })
 
         laser4.addEventListener('click', (evt)=>{
             if ((Number(res_dices.innerHTML) >= 14 && card === 'btn-hacker') || (Number(res_dices.innerHTML) == 20 && card === 'btn-talkative') || (Number(res_dices.innerHTML) == 20 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Laser 4: Desativado com sucesso!')
+                    alert('Laser 4: Successfully deactivated!')
                     alertShown = false
 
                     setTimeout(function (){
@@ -146,14 +148,14 @@ const desligarLaser = () => {
                 laser4.style.visibility = 'hidden'
                 laser4Visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                msg(`The attempt failed.`)
             }
         })
 
         laser3.addEventListener('click', (evt)=>{
             if ((Number(res_dices.innerHTML) >= 16 && card === 'btn-hacker') || (Number(res_dices.innerHTML) == 20 && card === 'btn-talkative') || (Number(res_dices.innerHTML) == 20 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Laser 3: Desativado com sucesso!')
+                    alert('Laser 3: Successfully deactivated!')
                     alertShown = false
 
                     setTimeout(function (){
@@ -163,14 +165,14 @@ const desligarLaser = () => {
                 laser3.style.visibility = 'hidden'
                 laser3Visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                msg(`The attempt failed.`)
             }
         })
 
         laser2.addEventListener('click', (evt)=>{
             if ((Number(res_dices.innerHTML) >= 18 && card === 'btn-hacker') || (Number(res_dices.innerHTML) == 20 && card === 'btn-talkative') || (Number(res_dices.innerHTML) == 20 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Laser 2: Desativado com sucesso!')
+                    alert('Laser 2: Successfully deactivated!')
                     alertShown = false
 
                     setTimeout(function (){
@@ -180,14 +182,14 @@ const desligarLaser = () => {
                 laser2.style.visibility = 'hidden'
                 laser2Visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                msg(`The attempt failed.`)
             }
         })
 
         laser1.addEventListener('click', (evt)=>{
             if ((Number(res_dices.innerHTML) >= 19 && card === 'btn-hacker') || (Number(res_dices.innerHTML) == 20 && card === 'btn-talkative') || (Number(res_dices.innerHTML) == 20 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Laser 1: Desativado com sucesso!')
+                    alert('Laser 1: Successfully deactivated!')
                     alertShown = false
 
                     setTimeout(function (){
@@ -197,7 +199,7 @@ const desligarLaser = () => {
                 laser1.style.visibility = 'hidden'
                 laser1Visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                msg(`The attempt failed.`)
             }
         })
     }
@@ -215,7 +217,7 @@ const del_msg = () => {
 }
 
 security1.addEventListener('mouseover', ()=>{
-    msg('Security 1: Why so much noise? Why did not I choose to be a programmer?!')
+    msg(`Security 1: I wonder what's happening?`)
 })
 
 security1.addEventListener('mouseout', ()=>{
@@ -223,7 +225,7 @@ security1.addEventListener('mouseout', ()=>{
 })
 
 security2.addEventListener('mouseover', ()=>{
-    msg('Security 2: Where are my clothes?')
+    msg('Security 2: The system generated an alert.')
 })
 
 security2.addEventListener('mouseout', ()=>{
@@ -231,7 +233,7 @@ security2.addEventListener('mouseout', ()=>{
 })
 
 security3.addEventListener('mouseover', ()=>{
-    msg('Security 3: Cronch! zzZ!')
+    msg('Security 3: I knew this could happen at any moment. That guard at the entrance is very lazy.')
 })
 
 security3.addEventListener('mouseout', ()=>{

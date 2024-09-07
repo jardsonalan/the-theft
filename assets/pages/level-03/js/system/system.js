@@ -45,19 +45,19 @@ btn_options.map((el) => {
 
 // Ações dos personagens e valores dos dados
 const handleSecurityClick = (security, minFalar, minEliminar) => {
-    if (currentAction === 'Eliminar um guarda') {
+    if (currentAction === 'Eliminate a guard') {
         if ((card === 'btn-staff' && Number(res_dices.innerHTML) >= 12) ||
         (card === 'btn-talkative' && Number(res_dices.innerHTML) >= 16) ||
         (card === 'btn-hacker' && Number(res_dices.innerHTML) >= 18)) {
             if (alertShown) {
                 if (security.id == 'security1') {
-                    alert(`Security 1: Eliminate!`)
+                    alert(`Security 1: Eliminated!`)
                     security1Visibility = 'hidden'
                 } else if (security.id == 'security2') {
-                    alert(`Security 2: Eliminate!`)
+                    alert(`Security 2: Eliminated!`)
                     security2Visibility = 'hidden'
                 } else if (security.id == 'security3') {
-                    alert(`Security 3: Eliminate!`)
+                    alert(`Security 3: Eliminated!`)
                     security3Visibility = 'hidden'
                 }
                 alertShown = false
@@ -65,7 +65,7 @@ const handleSecurityClick = (security, minFalar, minEliminar) => {
             }
             security.style.visibility = 'hidden'
         } else {
-            balon_res.innerHTML = 'Tentativa falhou'
+            balon_res.innerHTML = `The attempt failed.`
         }
     }
 }
@@ -75,7 +75,7 @@ security2.addEventListener('click', () => handleSecurityClick(security2, 12, 12)
 security3.addEventListener('click', () => handleSecurityClick(security3, 12, 12))
 
 const roubarKey = () => {
-    if (currentAction === 'Roubar') {
+    if (currentAction === 'Steal') {
         if (security1.style.visibility == 'hidden' && security2.style.visibility == 'hidden' && security3.style.visibility == 'hidden') {
             if ((card === 'btn-staff' && Number(res_dices.innerHTML) >= 12) ||
             (card === 'btn-talkative' && Number(res_dices.innerHTML) >= 16) ||
@@ -84,10 +84,10 @@ const roubarKey = () => {
                 cadeado2.style.visibility = 'hidden'
                 keyVisibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                alert(`The attempt failed.`)
             }
         } else {
-            alert('Essa ação ainda não pode ser realizada!')
+            alert('You still cannot perform this action!')
         }
     }
 }
@@ -95,11 +95,11 @@ const roubarKey = () => {
 key.addEventListener('click', roubarKey)
 
 const desligarCameras = () => {
-    if (currentAction === 'Hackear') {
+    if (currentAction === 'Hack') {
         if (key.style.visibility == 'hidden') {
             if ((Number(res_dices.innerHTML) >= 12 && card === 'btn-hacker') || (Number(res_dices.innerHTML) == 20 && card === 'btn-talkative') || (Number(res_dices.innerHTML) == 20 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Câmera 1: Desativada com sucesso!')
+                    alert('Camera(s): Successfully deactivated!')
                     alertShown = false
 
                     setTimeout(function (){
@@ -108,12 +108,12 @@ const desligarCameras = () => {
                 }
                 camera1.style.visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                balon_res.innerHTML = `The attempt failed.`
             }
 
             if ((Number(res_dices.innerHTML) >= 18 && card === 'btn-hacker') || (Number(res_dices.innerHTML) == 20 && card === 'btn-talkative') || (Number(res_dices.innerHTML) == 20 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Câmera 2: Desativada com sucesso!')
+                    alert('Camera(s): Successfully deactivated!')
                     alertShown = false
 
                     setTimeout(function (){
@@ -122,10 +122,10 @@ const desligarCameras = () => {
                 }
                 camera2.style.visibility = 'hidden'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                balon_res.innerHTML = `The attempt failed.`
             }
         } else {
-            alert('Essa ação ainda não pode ser realizada!')
+            alert('You still cannot perform this action!')
         }
     }
 }
@@ -133,11 +133,11 @@ const desligarCameras = () => {
 btn_hackear.addEventListener('click', desligarCameras)
 
 const roubarCofre = () => {
-    if (currentAction === 'Roubar') {
+    if (currentAction === 'Steal') {
         if (key.style.visibility == 'hidden' && camera1.style.visibility == 'hidden' && camera2.style.visibility == 'hidden') {
             if ((Number(res_dices.innerHTML) >= 18 && card === 'btn-hacker') || (Number(res_dices.innerHTML) >= 18 && card === 'btn-talkative') || (Number(res_dices.innerHTML) >= 18 && card === 'btn-staff')) {
                 if (alertShown) {
-                    alert('Congratulations! Vocês ganharam.')
+                    alert('Congratulations! You successfully robbed the vault.')
                     alertShown = false
 
                     setTimeout(function (){
@@ -145,11 +145,12 @@ const roubarCofre = () => {
                     }, 2000)
                 }
                 cadeado1.style.visibility = 'hidden'
+                window.location='../final/final.html'
             } else {
-                balon_res.innerHTML = 'Tentativa falhou'
+                alert(`The attempt failed.`)
             }
         } else {
-            alert('Essa ação ainda não pode ser realizada!')
+            alert('You still cannot perform this action!')
         }
     }
 }
@@ -166,7 +167,7 @@ const del_msg = () => {
 }
 
 security1.addEventListener('mouseover', ()=>{
-    msg('Security 1: Why so much noise? Why did not I choose to be a programmer?!')
+    msg('Security 1: Stay alert, they are coming!')
 })
 
 security1.addEventListener('mouseout', ()=>{
@@ -174,7 +175,7 @@ security1.addEventListener('mouseout', ()=>{
 })
 
 security2.addEventListener('mouseover', ()=>{
-    msg('Security 2: Where are my clothes?')
+    msg('Security 2: How did they manage to bypass the laser system?')
 })
 
 security2.addEventListener('mouseout', ()=>{
@@ -182,7 +183,7 @@ security2.addEventListener('mouseout', ()=>{
 })
 
 security3.addEventListener('mouseover', ()=>{
-    msg('Security 3: Cronch! zzZ!')
+    msg(`Security 3: They won't be able to get past me.`)
 })
 
 security3.addEventListener('mouseout', ()=>{
