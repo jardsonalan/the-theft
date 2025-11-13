@@ -18,6 +18,7 @@
 <img src="https://github.com/user-attachments/assets/a8d5aae2-1792-423a-8bdb-117a5cb3db75">
 
 <h2>Tecnologias utilizadas</h2>
+
 [![My Skills](https://skillicons.dev/icons?i=html,css,js&perline=5)](https://skillicons.dev)
 
 <h2>Autores</h2>
