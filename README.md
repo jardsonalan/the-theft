@@ -18,11 +18,7 @@
 <img src="https://github.com/user-attachments/assets/a8d5aae2-1792-423a-8bdb-117a5cb3db75">
 
 <h2>Tecnologias utilizadas</h2>
-<ul>
-  <li>HTML5</li>
-  <li>CSS3</li>
-  <li>JavaScript</li>
-</ul>
+[![My Skills](https://skillicons.dev/icons?i=html,css,js&perline=5)](https://skillicons.dev)
 
 <h2>Autores</h2>
 <h4>Ian de Araújo Galvão</h4>
